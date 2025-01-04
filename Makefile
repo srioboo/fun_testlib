@@ -5,8 +5,9 @@ MDIR = mkdir -p
 RM = rm
 
 ## Test library directories
-TEST_DIR_SRC = src
-TEST_BIN_DIR = bin
+TEST_LIB_ROOT = # fun_testlib/ # uncomment this line once in the test library
+TEST_DIR_SRC = $(TEST_LIB_ROOT)src
+TEST_BIN_DIR = $(TEST_LIB_ROOT)bin
 
 ## Name of the test main executable
 TEST_BIN = main_test.o
@@ -15,7 +16,7 @@ TEST_BIN = main_test.o
 TEST_SRC = $(wildcard $(TEST_DIR_SRC)/*.c)
 
 ## Test source apps
-TEST_DIR_APP = tests-template
+TEST_DIR_APP = src-tests
 TEST_SRC_APP = $(wildcard $(TEST_DIR_APP)/*.c)
 TESTED_LIBS = # ADD APPS LIBRARIES HERE
 
@@ -30,6 +31,6 @@ test: dirs
 # clean test directories
 clean:
 	$(RM) -fr $(TEST_BIN_DIR)
-	$(RM) $(TEST_DIR_SRC)/*.o
+#	$(RM) $(TEST_DIR_SRC)/*.o
 
 .PHONY: test clean dirs

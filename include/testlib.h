@@ -14,7 +14,7 @@
 # include <string.h>
 # include <ctype.h>
 // add libraries of the tested project
-// # include "../../libproject.h"
+// # include "../../src/lib_to_test.h"
 
 // prototipes from the src funcions
 void	fun_start(const char *method_name);
