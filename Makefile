@@ -5,7 +5,8 @@ MDIR = mkdir -p
 RM = rm
 
 ## Test library directories
-TEST_LIB_ROOT = # fun_testlib/ # uncomment this line once in the test library
+# uncoment TEST_LIB_ROOT value once in the app 
+TEST_LIB_ROOT = # fun_testlib/ 
 TEST_DIR_SRC = $(TEST_LIB_ROOT)src
 TEST_BIN_DIR = $(TEST_LIB_ROOT)bin
 
