@@ -17,7 +17,7 @@ TEST_BIN = main_test.o
 TEST_SRC = $(wildcard $(TEST_DIR_SRC)/*.c)
 
 ## Test source apps
-TEST_DIR_APP = src-tests
+TEST_DIR_APP = src-tests # add TEST_LIB_ROOT here if is call from outside
 TEST_SRC_APP = $(wildcard $(TEST_DIR_APP)/*.c)
 TESTED_LIBS = # ADD APPS LIBRARIES HERE
 
