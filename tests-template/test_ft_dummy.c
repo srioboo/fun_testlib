@@ -21,5 +21,5 @@ int	test_ft_dummy(void)
 	fun_test_header(1);
 	// add here the functions to test
 	fun_end(method_name);
-	return (0);
+	return (result);
 }
