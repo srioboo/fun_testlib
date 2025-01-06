@@ -1,23 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*   ft_test_show.c                                     :+:      :+:    :+:   */
+/*   ft_test_asserts.c                                  :+:      :+:    :+:   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	fun_show_data(char **test)
+void	fun_assert_int(int orig, int new)
 {
-	while (*test)
+	if (orig == new)
 	{
-		printf("--- '%s' \n", *test);
-		test++;
+		printf("--- orig %d and new %d are equals \n", orig, new);
 	}
-}
-
-void	fun_show_orig_new(int (*forig)(const char *),
-			int (*fnew)(const char *), const char *test)
-{
-	printf("--- orig: %d\n", forig(test));
-	printf("---  new: %d\n", fnew(test));
+	else
+		printf("--- orig %d and new %d are NON equals \n", orig, new);
 }
