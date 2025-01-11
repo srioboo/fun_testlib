@@ -11,7 +11,7 @@ TEST_DIR_SRC = $(TEST_LIB_ROOT)src
 TEST_BIN_DIR = $(TEST_LIB_ROOT)bin
 
 ## Name of the test main executable
-TEST_BIN = main_test.o
+TEST_BIN = fun_test_lib.o
 
 ## Library Test source
 TEST_SRC = $(wildcard $(TEST_DIR_SRC)/*.c)
@@ -26,7 +26,7 @@ dirs:
 
 # Test: generate test binary and launch it
 test: dirs
-	$(CC) $(CFLAGS) -lbsd $(TEST_SRC) $(TEST_SRC_APP) $(TESTED_LIBS) -o $(TEST_BIN_DIR)/$(TEST_BIN)
+	$(CC) $(CFLAGS) -I$(TEST_LIB_ROOT)include -lbsd $(TEST_SRC) $(TEST_SRC_APP) $(TESTED_LIBS) -o $(TEST_BIN_DIR)/$(TEST_BIN)
 	./$(TEST_BIN_DIR)/$(TEST_BIN)
 
 # clean test directories

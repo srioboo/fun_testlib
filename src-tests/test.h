@@ -5,7 +5,7 @@
 #ifndef TEST_H
 # define TEST_H
 
-# include "../include/testlib.h"
+# include "testlib.h"
 
 // add here funcions prototipe
 int	test_ft_dummy(void);

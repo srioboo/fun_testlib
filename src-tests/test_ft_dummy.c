@@ -20,6 +20,8 @@ int	test_ft_dummy(void)
 	fun_start(method_name);
 	fun_test_header(1);
 	// add here the functions to test
+	fun_assert_int(1, 1);
+	fun_assert_int(1, 2);
 	fun_end(method_name);
 	return (result);
 }

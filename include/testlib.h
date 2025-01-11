@@ -15,6 +15,9 @@
 # include <limits.h>
 // add libraries of the tested project
 // # include "../../app.h"
+// Utils
+char	*fun_method_name(char *name);
+char	*fun_free_str(char *str);
 
 // prototipes from the src funcions
 void	fun_start(const char *method_name);
