@@ -8,6 +8,6 @@
 # include "testlib.h"
 
 // add here funcions prototipe
-int	test_ft_dummy(void);
+int	test_ft_dummy(int active);
 
 #endif
