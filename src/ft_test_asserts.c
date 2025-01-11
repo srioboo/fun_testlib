@@ -4,14 +4,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "../include/testlib.h"
 
 void	fun_assert_int(int orig, int new)
 {
 	if (orig == new)
 	{
-		printf("--- orig %d and new %d are equals \n", orig, new);
+		printf("\033[0;32m[OK]: \033[0;37m orig %d and new %d are equals \n\n", orig, new);
 	}
 	else
-		printf("--- orig %d and new %d are NON equals \n", orig, new);
+		printf("\033[0;31m[KO]: \033[0;37m orig %d and new %d are NOT equals \n\n", orig, new);
 }

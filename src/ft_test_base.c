@@ -4,7 +4,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "../include/testlib.h"
 
 void	fun_start(const char *method_name)
 {

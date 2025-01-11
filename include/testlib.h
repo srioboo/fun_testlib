@@ -12,6 +12,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <ctype.h>
+# include <limits.h>
 // add libraries of the tested project
 // # include "../../app.h"
 

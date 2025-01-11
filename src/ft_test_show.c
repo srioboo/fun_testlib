@@ -4,7 +4,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "../include/testlib.h"
 
 void	fun_show_data(char **test)
 {
