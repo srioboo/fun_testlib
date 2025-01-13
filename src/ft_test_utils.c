@@ -8,21 +8,21 @@
 
 #include "testlib.h"
 
-char	*fun_free_str(char *str)
+char	*fun_free_str(char *text)
 {
-	free(str);
-	str = NULL;
-	return (str);
+	free(text);
+	text = NULL;
+	return (text);
 }
 
-char	*fun_method_name(char *name)
+char	*fun_method_name(char *text)
 {
-	char	*method_name;
+	char	*method_message;
 	int		len;
 
-	len = strlen(name) + 1;
-	method_name = (char *)malloc(len * sizeof(char *));
-	if (!method_name)
+	len = strlen(text) + 1;
+	method_message = (char *)malloc(len * sizeof(char *));
+	if (!method_message)
 		return (NULL);
-	return (method_name);
+	return (method_message);
 }

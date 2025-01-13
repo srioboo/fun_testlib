@@ -6,18 +6,18 @@
 
 #include "testlib.h"
 
-void	fun_show_data(char **test)
+void	fun_show_data(char **message)
 {
-	while (*test)
+	while (*message)
 	{
-		printf("--- '%s' \n", *test);
-		test++;
+		printf("--- '%s' \n", *message);
+		message++;
 	}
 }
 
 void	fun_show_orig_new(int (*forig)(const char *),
-			int (*fnew)(const char *), const char *test)
+			int (*fnew)(const char *), const char *message)
 {
-	printf("--- orig: %d\n", forig(test));
-	printf("---  new: %d\n", fnew(test));
+	printf("--- orig: %d\n", forig(message));
+	printf("---  new: %d\n", fnew(message));
 }
