@@ -37,6 +37,9 @@ void	fun_end(const char *method_message);
 
 void	fun_test_header(int num);
 void	fun_test_header_label(int num, char *str);
+char	*fun_red(void);
+char	*fun_green(void);
+char	*fun_white(void);
 
 /** Utils functions */
 

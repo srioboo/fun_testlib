@@ -10,12 +10,12 @@ void	fun_assert_int(int orig, int new)
 {
 	if (orig == new)
 	{
-		printf("\033[0;32m[OK]: \033[0;37m orig %d and new %d equals \n\n",
-			orig, new);
+		printf("%s[OK]: %s orig %d and new %d equals \n\n",
+			fun_green(), fun_white(), orig, new);
 	}
 	else
-		printf("\033[0;31m[KO]: \033[0;37m orig %d and new %d NOT equals \n\n",
-			orig, new);
+		printf("%s[KO]: %s orig %d and new %d NOT equals \n\n",
+			fun_red(), fun_white(), orig, new);
 }
 
 void	fun_assert_int_fun(int (*f_ori)(const char *str, ...),
