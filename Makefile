@@ -33,4 +33,10 @@ test: dirs
 clean:
 	$(RM) -fr $(TEST_BIN_DIR)
 
+# detect memory leaks
+sane:
+	$(CC) $(CFLAGS) -I$(TEST_LIB_ROOT)include -lbsd $(TEST_SRC) $(TEST_SRC_APP) $(TESTED_LIBS) -o $(TEST_BIN_DIR)/$(TEST_BIN) -fsanitize=address -g
+	./$(TEST_BIN_DIR)/$(TEST_BIN)
+
+
 .PHONY: test clean dirs
