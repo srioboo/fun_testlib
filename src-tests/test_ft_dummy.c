@@ -11,7 +11,7 @@ int	test_ft_dummy(int active)
 {
 	char	*method_name;
 	int		result;
-		
+
 	method_name = fun_method_name("test_ft_dummy");
 	result = 0;
 	if (active != 0)
@@ -22,7 +22,7 @@ int	test_ft_dummy(int active)
 		fun_assert_int(1, 1);
 		fun_assert_int(1, 2);
 		fun_end(method_name);
-		method_name = fun_free_str(method_name);
 	}
+	method_name = fun_free_str(method_name);
 	return (result);
 }

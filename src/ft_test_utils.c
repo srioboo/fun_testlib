@@ -24,5 +24,6 @@ char	*fun_method_name(char *text)
 	method_message = (char *)malloc(len * sizeof(char *));
 	if (!method_message)
 		return (NULL);
+	strcpy(method_message, text); // copy text to method_message (avoid leaks)
 	return (method_message);
 }
