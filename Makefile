@@ -38,5 +38,9 @@ sane:
 	$(CC) $(CFLAGS) -I$(TEST_LIB_ROOT)include -lbsd $(TEST_SRC) $(TEST_SRC_APP) $(TESTED_LIBS) -o $(TEST_BIN_DIR)/$(TEST_BIN) -fsanitize=address -g
 	./$(TEST_BIN_DIR)/$(TEST_BIN)
 
+val:
+	$(CC) $(CFLAGS) -I$(TEST_LIB_ROOT)include -lbsd $(TEST_SRC) $(TEST_SRC_APP) $(TESTED_LIBS) -o $(TEST_BIN_DIR)/$(TEST_BIN) -fsanitize=address -g
+	valgrind --leak-check=full ./$(TEST_BIN_DIR)/$(TEST_BIN)
+
 
 .PHONY: test clean dirs
