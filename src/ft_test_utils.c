@@ -6,7 +6,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "testlib.h"
+#include "funtestlib.h"
 
 char	*fun_free_str(char *text)
 {
