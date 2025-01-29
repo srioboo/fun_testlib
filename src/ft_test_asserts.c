@@ -4,7 +4,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "testlib.h"
+#include "funtestlib.h"
 
 void	fun_assert_int(int orig, int new)
 {

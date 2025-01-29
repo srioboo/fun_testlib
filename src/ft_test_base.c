@@ -4,7 +4,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "testlib.h"
+#include "funtestlib.h"
 
 void	fun_start(const char *method_message)
 {
