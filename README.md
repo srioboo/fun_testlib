@@ -14,3 +14,15 @@ A helper library to allow test the libraries and project written in C
     - add the needed libraries in TESTTED_LIBS
     - modify TEST_DIR_APP if needed
 4. Change the include/testlib.h to add your app library to test
+
+## Troubleshooting
+
+1. In the Makefile, in order to use properly the library already compiled and zipped, it is necesary be careful with the order in the compilation
+
+```shell
+test: $(OBJS_TESTS)
+   $(CC) $(CFLAGS) -I$(TEST_INCLUDE) $(SRCS_TESTS) -L$(TEST_LIB) -l:libfuntest.a -o $(TEST_BIN)
+  ./$(TEST_BIN)
+```
+
+libfuntest.a mas be go after the source code
