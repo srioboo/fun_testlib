@@ -7,13 +7,44 @@ A helper library to allow test the libraries and project written in C
 
 ## Usage
 
-1. add to the root of your project with the name fun_testlib
-2. edit the the files on the src-test to allow testing, add methos to the header file an change test_ft_dummy.c or add new files as needed
-3. Change de Makefile to allow be call form the project Makefile
-    - uncomment TEST_LIB_ROOT
-    - add the needed libraries in TESTTED_LIBS
-    - modify TEST_DIR_APP if needed
-4. Change the include/testlib.h to add your app library to test
+### Compile and generate lib
+
+1. download or clone the project
+2. do `make all`
+3. the library will be generated in the lib directory
+
+### Use the libraries
+1. add the include file funtestlib.h to the include directory of your project
+2. add the libfuntest.a in the directory lib of your project
+3. add the src-test directory to your project, and change/add your
+4. add to the Makefile the following tasks:
+  ```makefile
+    # Test: generate test binary
+    test: $(TEST_OBJS)
+      $(CC) $(CFLAGS) -I$(INCLUDE) $(TEST_SRCS) -L$(LIB) -l:$(LIB_NAME) -o $(TEST_BIN)
+      ./$(TEST_BIN)
+  ```
+The variables needed are:
+
+```makefile
+    # Library name
+    LIB_NAME = libfuntest.a
+    
+    # Compiler and flags for compilation
+    CC = cc
+    CFLAGS = -Wall -Werror -Wextra
+
+    # Directories
+    INCLUDE = include
+    LIB = lib
+
+    ## Name of the test main executable
+    TEST_BIN = test.out
+
+    ## Library Test source and objects
+    TEST_SRCS = $(wildcard src-tests/*.c)
+    TEST_OBJS = $(TEST_SRCS:.c=.o)
+``` 
 
 ## Troubleshooting
 
