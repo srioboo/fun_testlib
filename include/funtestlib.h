@@ -31,7 +31,7 @@
  * @details It helps to know which method are executing
  * @param method_message the message to show at the start
  */
-void fun_start(const char *method_message);
+void	fun_start(const char *method_message);
 
 /**
  * @brief print message at the end of the method
@@ -39,13 +39,13 @@ void fun_start(const char *method_message);
  * @details It helps to know which method are finishing
  * @param method_message the message to show at the end
  */
-void fun_end(const char *method_message);
+void	fun_end(const char *method_message);
 
-void fun_test_header(int num);
-void fun_test_header_label(int num, char *str);
-char *fun_red(void);
-char *fun_green(void);
-char *fun_white(void);
+void	fun_test_header(int num);
+void	fun_test_header_label(int num, char *str);
+char	*fun_red(void);
+char	*fun_green(void);
+char	*fun_white(void);
 
 /** Utils functions */
 
@@ -56,7 +56,7 @@ char *fun_white(void);
  * @param text string for memory allocation
  * @return the text
  */
-char *fun_method_name(char *text);
+char	*fun_method_name(char *text);
 
 /**
  * @brief free memory in string
@@ -65,7 +65,7 @@ char *fun_method_name(char *text);
  * @param text the string to free
  * @return the given string to NULL
  */
-char *fun_free_str(char *text);
+char	*fun_free_str(char *text);
 
 /** Show data functions */
 
@@ -77,7 +77,7 @@ char *fun_free_str(char *text);
  * @param message string to show data
  * @return nothing
  */
-void fun_show_data(char **message);
+void	fun_show_data(char **message);
 
 /**
  * @brief print a formated string
@@ -89,8 +89,8 @@ void fun_show_data(char **message);
  * @param message string to show data
  * @return nothing
  */
-void fun_show_orig_new(int (*f1)(const char *),
-					   int (*f2)(const char *), const char *message);
+void	fun_show_orig_new(int (*f1)(const char *),
+			int (*f2)(const char *), const char *message);
 
 /** Assertions functions */
 
@@ -102,7 +102,7 @@ void fun_show_orig_new(int (*f1)(const char *),
  * @param orig int origin
  * @param new int to test agais origin
  */
-void fun_assert_int(int orig, int new);
+void	fun_assert_int(int orig, int new);
 
 /**
  * @brief assert that two numbers are equals, but using functions from the lib
@@ -115,7 +115,7 @@ void fun_assert_int(int orig, int new);
  * @param str string to pass to the funcions
  * @param int integer to pass to the functios
  */
-void fun_assert_int_fun(int (*f_ori)(const char *str, ...),
-						int (*f_new)(const char *str, ...), const char *str, ...);
+void	fun_assert_int_fun(int (*f_ori)(const char *str, ...),
+			int (*f_new)(const char *str, ...), const char *str, ...);
 
 #endif
