@@ -14,37 +14,29 @@ A helper library to allow test the libraries and project written in C
 3. the library will be generated in the lib directory
 
 ### Use the libraries
-1. add the include file funtestlib.h to the include directory of your project
+
+1. add the include file funtestlib.h to the include directory of your project and add the header of the libraries to test
 2. add the libfuntest.a in the directory lib of your project
-3. add the src-test directory to your project, and change/add your
-4. add to the Makefile the following tasks:
+3. add the src-test directory to your project, and change/add your test
+4. add to the Makefile of the project the following tasks:
+
   ```makefile
-    # Test: generate test binary
-    test: $(TEST_OBJS)
-      $(CC) $(CFLAGS) -I$(INCLUDE) $(TEST_SRCS) -L$(LIB) -l:$(LIB_NAME) -o $(TEST_BIN)
-      ./$(TEST_BIN)
+  # TEST Section
+  test: all
+    $(MAKE) -f src-tests/Makefile test
+
+  tclean:
+    $(MAKE) -f src-tests/Makefile tclean
+
+  # Memory leaks detection
+  sane:
+    $(MAKE) -f src-tests/Makefile sane
+
+  val: 
+    $(MAKE) -f src-tests/Makefile val 
   ```
-The variables needed are:
 
-```makefile
-    # Library name
-    LIB_NAME = libfuntest.a
-    
-    # Compiler and flags for compilation
-    CC = cc
-    CFLAGS = -Wall -Werror -Wextra
-
-    # Directories
-    INCLUDE = include
-    LIB = lib
-
-    ## Name of the test main executable
-    TEST_BIN = test.out
-
-    ## Library Test source and objects
-    TEST_SRCS = $(wildcard src-tests/*.c)
-    TEST_OBJS = $(TEST_SRCS:.c=.o)
-``` 
+add to the test Makefile the library to tests
 
 ## Troubleshooting
 
