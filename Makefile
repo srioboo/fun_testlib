@@ -36,8 +36,13 @@ fclean: clean
 # relink
 re: fclean all
 
+# build
+build: all
+	cp -r include src-tests
+	cp -r lib src-tests
+
 # TEST Section
-test: all
+test: build
 	$(MAKE) -f src-tests/Makefile test
 
 tclean:
@@ -50,4 +55,4 @@ sane:
 val: 
 	$(MAKE) -f src-tests/Makefile val
 
-.PHONY: all clean fclean re test tclean sane val
+.PHONY: all clean fclean re build test tclean sane val
