@@ -102,7 +102,7 @@ void	fun_show_orig_new(int (*f1)(const char *),
  * @param orig int origin
  * @param new int to test agais origin
  */
-void	fun_assert_int(int orig, int new);
+void fun_assert_int(int orig_num, int new_num);
 
 /**
  * @brief assert that two numbers are equals, but using functions from the lib
