@@ -13,5 +13,6 @@ int	main(int argc, char **argv)
 		printf("%d", argc);
 	if (!argv)
 		printf("%s", argv[0]);
+	fun_group_start("GROUP 1");
 	test_ft_dummy(1);
 }

@@ -21,6 +21,7 @@ int	test_ft_dummy(int active)
 		// add here the functions to test
 		fun_assert_int(1, 1);
 		fun_assert_int(1, 2);
+		fun_color_show();
 		fun_end(method_name);
 	}
 	method_name = fun_free_str(method_name);

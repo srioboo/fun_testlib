@@ -6,34 +6,39 @@
 
 #include "funtestlib.h"
 
-char	*fun_red(void)
+void	fun_color_show(void)
 {
-	char	*color;
+	int	icolor;
 
-	color = COLOR_RED;
+	icolor = 0;
+	while (icolor <= 7)
+	{
+		printf("\x1b[3%d%s \t \x1b[0m \x1b[4%d%s\x1b[0m\n", icolor, "mCOLOR", icolor, "mBACKGROUND");
+		icolor++;
+	}
+}
+
+char	*fun_color(char *color)
+{
 	return (color);
 }
 
-char	*fun_green(void)
+char	*fun_color_red(void)
 {
-	char	*color;
-
-	color = COLOR_GREEN;
-	return (color);
+	return (COLOR_RED);
 }
 
-char	*fun_white(void)
+char	*fun_color_green(void)
 {
-	char	*color;
+	return (COLOR_GREEN);
+}
 
-	color = COLOR_WHITE;
-	return (color);
+char	*fun_color_white(void)
+{
+	return (COLOR_WHITE);
 }
 
 char	*fun_color_reset(void)
 {
-	char	*color;
-
-	color = COLOR_RESET;
-	return (color);
+	return (COLOR_RESET);
 }

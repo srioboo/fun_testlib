@@ -18,12 +18,30 @@
 // # include "../../app.h"
 
 /** Constants **/
-# define COLOR_RED "\033[0;31m"
-# define COLOR_GREEN "\033[0;32m"
-# define COLOR_WHITE "\033[0;37m"
-# define COLOR_RESET "\033[0m"
+# define COLOR_BLACK "\x1b[30m"
+# define COLOR_BLACK_BKG "\x1b[40m"
+# define COLOR_RED "\x1b[31m"
+# define COLOR_ROJO_BKG "\x1b[41m"
+# define COLOR_GREEN "\x1b[32m"
+# define COLOR_GREEN_BKG "\x1b[42m"
+# define COLOR_YELLOW "\x1b[33m"
+# define COLOR_YELLOW_BKG "\x1b[43m"
+# define COLOR_BLUE "\x1b[34m"
+# define COLOR_BLUE_BKG "\x1b[44m"
+# define COLOR_MAGENTA "\x1b[35m"
+# define COLOR_MAGENTA_BKG "\x1b[45m"
+# define COLOR_CYAN "\x1b[36m"
+# define COLOR_CYAN_BKG "\x1b[46m"
+# define COLOR_WHITE "\x1b[37m"
+# define COLOR_WHITE_BKG "\x1b[47m"
+# define COLOR_RESET "\x1b[0m"
 
 /** Base functions */
+
+/**
+ * @brief grout message start
+ */
+void fun_group_start(const char *method_message);
 
 /**
  * @brief print message at the start of the method
@@ -43,9 +61,10 @@ void	fun_end(const char *method_message);
 
 void	fun_test_header(int num);
 void	fun_test_header_label(int num, char *str);
-char	*fun_red(void);
-char	*fun_green(void);
-char	*fun_white(void);
+char	*fun_color_red(void);
+char	*fun_color_green(void);
+char	*fun_color_white(void);
+void 	fun_color_show(void);
 
 /** Utils functions */
 
