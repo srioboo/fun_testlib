@@ -61,9 +61,9 @@ void	fun_end(const char *method_message);
 
 void	fun_test_header(int num);
 void	fun_test_header_label(int num, char *str);
-char	*fun_color_red(void);
-char	*fun_color_green(void);
-char	*fun_color_white(void);
+char	*fun_color(char *color);
+char	*fun_color_ko(void);
+char	*fun_color_ok(void);
 void	fun_color_show(void);
 
 /** Utils functions */

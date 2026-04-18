@@ -11,12 +11,12 @@ int	fun_assert_int(int orig, int new)
 	if (orig == new)
 	{
 		printf("%s[OK]: %s orig %d and new %d equals \n\n",
-			fun_color_green(), fun_color_white(), orig, new);
+			fun_color_ok(), fun_color(COLOR_WHITE), orig, new);
 		return (1);
 	}
 	else
 		printf("%s[KO]: %s orig %d and new %d NOT equals \n\n",
-			fun_color_red(), fun_color_white(), orig, new);
+			fun_color_ko(), fun_color(COLOR_WHITE), orig, new);
 	return (0);
 }
 

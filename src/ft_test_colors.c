@@ -13,7 +13,8 @@ void	fun_color_show(void)
 	icolor = 0;
 	while (icolor <= 7)
 	{
-		printf("\x1b[3%d%s \t \x1b[0m \x1b[4%d%s\x1b[0m\n", icolor, "mCOLOR", icolor, "mBACKGROUND");
+		printf("\x1b[3%d%s \t \x1b[0m \x1b[4%d%s\x1b[0m\n",
+			icolor, "mCOLOR", icolor, "mBACKGROUND");
 		icolor++;
 	}
 }
@@ -23,22 +24,17 @@ char	*fun_color(char *color)
 	return (color);
 }
 
-char	*fun_color_red(void)
+char	*fun_color_ko(void)
 {
-	return (COLOR_RED);
+	return (fun_color(COLOR_RED));
 }
 
-char	*fun_color_green(void)
+char	*fun_color_ok(void)
 {
-	return (COLOR_GREEN);
-}
-
-char	*fun_color_white(void)
-{
-	return (COLOR_WHITE);
+	return (fun_color(COLOR_GREEN));
 }
 
 char	*fun_color_reset(void)
 {
-	return (COLOR_RESET);
+	return (fun_color(COLOR_RESET));
 }
