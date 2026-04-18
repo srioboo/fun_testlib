@@ -36,6 +36,25 @@
 # define COLOR_WHITE_BKG "\x1b[47m"
 # define COLOR_RESET "\x1b[0m"
 
+typedef struct fun_test_context_t
+{
+	int	total;
+	int	passed;
+	int	failed;
+}	t_test_context;
+
+int		fun_tests_get_exit_code(void);
+
+/**
+ * show summary
+ */
+void	fun_tests_summary(void);
+
+/**
+ * reset counter to zero
+ */
+void	fun_tests_reset(void);
+
 /** Base functions */
 
 /**
@@ -64,6 +83,7 @@ void	fun_test_header_label(int num, char *str);
 char	*fun_color(char *color);
 char	*fun_color_ko(void);
 char	*fun_color_ok(void);
+char	*fun_color_reset(void);
 void	fun_color_show(void);
 
 /** Utils functions */
@@ -134,7 +154,10 @@ int		fun_assert_int(int orig_num, int new_num);
  * @param str string to pass to the funcions
  * @param int integer to pass to the functios
  */
-void	fun_assert_int_fun(int (*f_ori)(const char *str, ...),
+int		fun_assert_int_fun(int (*f_ori)(const char *str, ...),
 			int (*f_new)(const char *str, ...), const char *str, ...);
+
+/* Internal function for context increment - used by asserts */
+void	ft_context_increment_wrapper(int result);
 
 #endif
