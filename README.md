@@ -51,17 +51,17 @@ int test_my_lib(int active)
 {
     char *method = fun_method_name("test_my_lib");
     int result = 0;
-    
+
     if (active != 0)
     {
         fun_start(method);
         fun_test_header(1);
-        
+
         // Test your function
         int expected = 42;
         int actual = my_function();
         fun_assert_int(expected, actual);
-        
+
         fun_color_show();
         fun_end(method);
     }
@@ -92,10 +92,10 @@ int main(int argc, char **argv)
 {
     (void)argc;
     (void)argv;
-    
+
     fun_group_start("MY LIBRARY TESTS");
     test_my_lib(1);
-    
+
     return (0);
 }
 ```
@@ -178,6 +178,7 @@ make tclean  # Clean test artifacts
 | `fun_color_show()` | Print legend of all colors |
 
 **ANSI Color Constants** (use directly in printf):
+
 ```c
 COLOR_RED, COLOR_GREEN, COLOR_YELLOW, COLOR_BLUE, COLOR_MAGENTA, COLOR_CYAN
 COLOR_RED_BKG, COLOR_GREEN_BKG, COLOR_YELLOW_BKG, // backgrounds
@@ -186,7 +187,7 @@ COLOR_RESET  // reset formatting
 
 ## Project Structure
 
-```
+```plaintext
 fun_testlib/
 ├── src/                        # Library source files
 │   ├── ft_test_base.c         # Group/test start/end functions
@@ -236,22 +237,22 @@ The test Makefile compiles test sources and links against the precompiled `libfu
 void test_string_functions(int active)
 {
     char *method = fun_method_name("test_string_functions");
-    
+
     if (active)
     {
         fun_group_start("STRING UTILITIES");
         fun_start(method);
-        
+
         fun_test_header_label(1, "strlen test");
         fun_assert_int(5, my_strlen("hello"));
-        
+
         fun_test_header_label(2, "strcmp test");
         fun_assert_int(0, my_strcmp("abc", "abc"));
-        
+
         fun_color_show();
         fun_end(method);
     }
-    
+
     method = fun_free_str(method);
 }
 ```
@@ -283,6 +284,7 @@ $(CC) $(CFLAGS) -I$(INCLUDE) -L$(LIB) -l:libfuntest.a $(SRCS) -o $(BIN)
 **Problem**: `-Werror` flag treats warnings as errors.
 
 **Solution**: Fix all compiler warnings. Common issues:
+
 - Unused variables: Use `(void)var;` to suppress
 - Implicit declarations: Include proper headers
 - Missing prototypes: Declare functions before use
@@ -292,6 +294,7 @@ $(CC) $(CFLAGS) -I$(INCLUDE) -L$(LIB) -l:libfuntest.a $(SRCS) -o $(BIN)
 **Problem**: AddressSanitizer or Valgrind reports memory errors.
 
 **Solution**:
+
 - Always pair `fun_method_name()` with `fun_free_str()`
 - Check for malloc/free imbalances in your test code
 - Run with `make sane` for better error messages
@@ -301,15 +304,44 @@ $(CC) $(CFLAGS) -I$(INCLUDE) -L$(LIB) -l:libfuntest.a $(SRCS) -o $(BIN)
 **Problem**: Output appears plain without colors.
 
 **Solution**: Ensure your terminal supports ANSI color codes. Some options:
+
 - Run directly in terminal (not captured/piped output)
 - Force colors with: `TERM=xterm-256color make test`
 
 ## Learning Goals
 
 This project demonstrates:
+
 - Static library creation with Make
 - ANSI color codes for terminal output
 - Variadic function handling
 - Memory safety (using sanitizers and Valgrind)
 - Test framework design
 - Makefile advanced features (wildcard, pattern rules)
+
+---
+
+## Markdown Linting Configuration
+
+This project uses **markdownlint** to enforce markdown style consistency. Some rules are intentionally disabled in `.markdownlint.json` for project-specific conventions:
+
+| Rule ID | Rule Name | Status | Reason |
+|---------|-----------|--------|--------|
+| **MD013** | Line too long | ⛔ Disabled | Code examples and documentation exceed 80 characters intentionally for readability |
+| **MD010** | Hard tabs | ⛔ Disabled | Tabs are used in code blocks and Makefiles following 42 Norm standards |
+| **MD060** | Table column style | Disabled | table-column-style |
+
+**To validate markdown files:**
+
+```bash
+# Install (if not already installed)
+npm install -g markdownlint-cli
+
+# Run validation
+markdownlint *.md
+```
+
+**Editor Integration:**
+
+- **VS Code**: Install "markdownlint" extension by David Anson
+- **Zed**: Use `.markdownlint.json` for configuration (automatic detection)

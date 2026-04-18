@@ -1,0 +1,37 @@
+# EditorConfig is awesome: https://EditorConfig.org
+# Configuration for 42 School Norm compliance
+
+root = true
+
+# All files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# C source files
+[*.{c,h}]
+# 42 Norm: Use TABS for indentation, NOT spaces
+indent_style = tab
+indent_size = 4
+
+# 42 Norm: Maximum line length is 80 characters
+# Some interpretations allow up to 100, but 80 is standard
+max_line_length = 80
+
+# Makefile
+[Makefile]
+indent_style = tab
+indent_size = 4
+
+# Markdown files (documentation)
+[*.md]
+indent_style = space
+indent_size = 2
+max_line_length = 120
+
+# Shell scripts
+[*.sh]
+indent_style = space
+indent_size = 4

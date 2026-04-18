@@ -48,11 +48,15 @@ test: build
 tclean:
 	$(MAKE) -f src-tests/Makefile tclean
 
+# Norm
+norm:
+	@~/Library/Python/3.9/bin/norminette $(SRC) $(INCLUDE)
+
 # Memory leaks detection
 sane:
 	$(MAKE) -f src-tests/Makefile sane
 
-val: 
+val:
 	$(MAKE) -f src-tests/Makefile val
 
-.PHONY: all clean fclean re build test tclean sane val
+.PHONY: all clean fclean re build test tclean sane val norm
