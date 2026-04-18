@@ -21,7 +21,7 @@ TEST_OBJS = $(TEST_SRCS:.c=.o)
 
 # Test: generate test binary
 test:
-	$(CC) $(CFLAGS) -I$(INCLUDE) $(TEST_SRCS) $(LIB_TESTED) -L$(LIB) -l:$(LIB_TEST_NAME) -o $(TEST_BIN)
+	$(CC) $(CFLAGS) -I$(INCLUDE) $(TEST_SRCS) $(LIB_TESTED) -L$(LIB) $(LIB)/$(LIB_TEST_NAME) -o $(TEST_BIN)
 	./$(TEST_BIN)
 
 # clean test directories
@@ -30,11 +30,11 @@ tclean:
 
 # Memory leaks detection
 sane:
-	$(CC) $(CFLAGS) -Iinclude $(TEST_SRCS) $(LIB_TESTED) -L$(LIB) -l:$(LIB_TEST_NAME) -o $(TEST_BIN) -fsanitize=address -g
+	$(CC) $(CFLAGS) -I$(INCLUDE) $(TEST_SRCS) $(LIB_TESTED) -L$(LIB) $(LIB)/$(LIB_TEST_NAME) -o $(TEST_BIN) -fsanitize=address -g
 	./$(TEST_BIN)
 
 val:
-	$(CC) $(CFLAGS) -I$(INCLUDE) $(TEST_SRCS) $(LIB_TESTED) -L$(LIB) -l:$(LIB_TEST_NAME) -o $(TEST_BIN)
+	$(CC) $(CFLAGS) -I$(INCLUDE) $(TEST_SRCS) $(LIB_TESTED) -L$(LIB) $(LIB)/$(LIB_TEST_NAME) -o $(TEST_BIN)
 	valgrind --leak-check=full ./$(TEST_BIN)
 
 .PHONY: test tclean sane val
