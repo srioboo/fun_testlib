@@ -55,6 +55,21 @@ void	fun_tests_summary(void);
  */
 void	fun_tests_reset(void);
 
+/**
+ * @brief Start a test with automatic setup
+ * 
+ * @details Stores test name and calls fun_start() and fun_test_header_label()
+ * @param name The name of the test
+ */
+void	fun_test_start(const char *name);
+
+/**
+ * @brief End a test with automatic cleanup
+ * 
+ * @details Calls fun_color_show() and fun_end(), frees test name
+ */
+void	fun_test_end(void);
+
 /** Base functions */
 
 /**

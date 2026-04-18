@@ -7,6 +7,7 @@
 #include "funtestlib.h"
 
 static t_test_context	g_context = {0};
+static char				*g_current_test = NULL;
 
 static void	ft_context_increment(int result)
 {
@@ -45,6 +46,11 @@ void	fun_tests_reset(void)
 	g_context.total = 0;
 	g_context.passed = 0;
 	g_context.failed = 0;
+	if (g_current_test)
+	{
+		free(g_current_test);
+		g_current_test = NULL;
+	}
 }
 
 void	ft_context_increment_wrapper(int result)
