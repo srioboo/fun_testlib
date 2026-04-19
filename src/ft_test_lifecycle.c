@@ -22,7 +22,6 @@ void	fun_test_start(const char *name)
 
 void	fun_test_end(void)
 {
-	fun_color_show();
 	fun_end(g_current_test);
 	if (g_current_test)
 	{
