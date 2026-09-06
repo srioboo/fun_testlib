@@ -9,33 +9,36 @@ Seguimiento de implementación de mejoras. Marca las tareas como completadas (`[
 Estas tareas son críticas para habilitar CI/CD y mejorar la usabilidad básica.
 
 ### 1.1 Retorno de estado en aserciones
-- [ ] Crear struct `fun_test_context_t` para tracking global de resultados
+- [X] Crear struct `fun_test_context_t` para tracking global de resultados
 - [X] Modificar `fun_assert_int()` para retornar `int` (1=OK, 0=KO)
-- [ ] Incrementar contador interno en cada assert
-- [ ] Actualizar header `funtestlib.h` con nueva firma
+- [X] Incrementar contador interno en cada assert
+- [X] Actualizar header `funtestlib.h` con nueva firma
 - [ ] Verificar backward compatibility
 
 **Complejidad**: Baja | **Impacto**: Alto
 
 ---
 
-### 1.2 Macro simplificador FUN_TEST()
-- [ ] Diseñar macro `FUN_TEST(name, body)` que encapsule setup/teardown
-- [ ] Eliminar necesidad de `fun_method_name()` / `fun_free_str()` en macros
-- [ ] Implementar context automático en macro
-- [ ] Crear ejemplo de uso en header
-- [ ] Documentar patrones de uso
+### 1.2 Funciones simplificadoras fun_test_start/end()
+- [X] Crear `fun_test_start(const char *name)` en ft_test_lifecycle.c
+- [X] Crear `fun_test_end(void)` en ft_test_lifecycle.c
+- [X] Almacenar nombre del test en variable global estática `g_current_test`
+- [X] Agregar declaraciones en funtestlib.h
+- [X] Refactor test_ft_dummy.c para usar nuevo API
+- [X] Verificar compliance con norma 42 (max 5 funciones por archivo)
+- [X] Ejecutar tests: `make test` pasar sin cambios en output
 
 **Complejidad**: Media | **Impacto**: Alto
+**Notas**: Opción segura sin código oculto. Usa 2 nuevas funciones + static global. Ver IMPLEMENTATION_GUIDE_1_2.md
 
 ---
 
 ### 1.3 Resumen de resultados y exit codes
-- [ ] Implementar `fun_tests_summary()` que imprima estadísticas
-- [ ] Implementar `fun_tests_get_exit_code()` (retorna 0 si OK, 1 si fallos)
-- [ ] Agregar contador de tests totales/pasados/fallidos
-- [ ] Formatear salida con colores
-- [ ] Permitir reset de contadores con `fun_tests_reset()`
+- [X] Implementar `fun_tests_summary()` que imprima estadísticas
+- [X] Implementar `fun_tests_get_exit_code()` (retorna 0 si OK, 1 si fallos)
+- [X] Agregar contador de tests totales/pasados/fallidos
+- [X] Formatear salida con colores
+- [X] Permitir reset de contadores con `fun_tests_reset()`
 
 **Complejidad**: Media | **Impacto**: Muy Alto (habilitador de CI/CD)
 
